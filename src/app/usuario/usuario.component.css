@@ -1,0 +1,57 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.background {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+  height: 100vh;
+  width: 100%;
+}
+
+.logofast {
+  margin-bottom: 5px; /* Espaço entre a logo e o campo de opções */
+  margin-top: 5px;
+  width: 250px; /* Ajuste o tamanho da logo conforme necessário */
+}
+
+.usuario_conteudo {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  padding: 20px;
+  background-color: #F2E5D5;
+  border-radius: 10px;
+  width: 400px;
+  height: 400px;
+}
+
+.usuario_conteudo h2 {
+  margin-bottom: 20px;
+  color: #BF281B;
+  font-size: 44px;
+}
+
+.usuario_conteudo button {
+  padding: 10px 20px;
+  font-size: 25px;
+  cursor: pointer;
+  background-color: #F2C777;
+  color: #FBF2DD;
+  border: none;
+  border-radius: 5px;
+  height: 80px;
+  width: 100%; /* Ocupa a largura total do container */
+}
+
+.usuario_conteudo button:hover {
+  background-color: #b7adad;
+}
