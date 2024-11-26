@@ -12,16 +12,14 @@ body, html {
   background-color: #424141;
 }
 
-
-
 .cabecalho {
   width: 100%;
   height: 25vh;
   background-color: black;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  flex-direction: column;
   padding: 20px 0;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   font-size: 25px;
@@ -31,29 +29,28 @@ body, html {
   z-index: 1000;
 }
 
-
 .cabecalho img {
   width: 150px;
   margin-bottom: 10px;
 }
 
+.cabecalho p {
+  color: #fff;
+}
+
 .header-buttons {
   display: flex;
   gap: 10px;
-  margin-top: 10px;
-  position: relative;
-  top: -12px;
+  margin-top: 5px;
 }
 
 .header-buttons p {
   margin: 0;
-  text-align: center;
 }
 
 .header-button {
   text-decoration: none;
   color: #fff;
-  margin-top: 0;
   font-size: 1.3rem;
 }
 
@@ -62,18 +59,8 @@ body, html {
 }
 
 .catalogo-drinks {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  padding-top: 200px;
   color: white;
-  padding: 30px;
-  width: 100%;
-  margin-top: 180px;
-  height: calc(100vh - 180px);
-  overflow-y: auto;
-}
-
-.catalogo-conteudo {
   width: 100%;
 }
 
@@ -82,32 +69,32 @@ body, html {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   width: 100%;
+  padding: 20px;
 }
 
 .drink-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: #dfdfdf;
   border: none;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: background-color 0.3s;
   text-align: center;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+
+.drink-item:hover {
+  transform: scale(1.05);
 }
 
 .drink-item img {
   width: 120px;
-  height: auto;
   border-radius: 10px;
   margin-bottom: 10px;
 }
 
 .drink-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  text-align: center;
 }
 
 .drink-nome {
@@ -126,75 +113,56 @@ body, html {
   color: #ffcc00;
 }
 
-/* Estilos dos botões "Comprar" e "Adicionar ao Carrinho" */
 .drink-actions {
   display: flex;
   justify-content: center;
-  align-items: center;
   gap: 10px;
-  margin-top: 10px;
-}
-
-.comprar-botao, .carrinho-botao {
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: background-color 0.3s;
 }
 
 .comprar-botao {
   background-color: black;
+  color: white;
   border: none;
-  color: #ffff;
-  padding: 0 20px;
-  width: 180px;
-  font-size: 1.3rem;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .comprar-botao:hover {
   background-color: #424141;
 }
 
+.carrinho-botao {
+  background-color: black;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .carrinho-botao:hover {
   background-color: #424141;
 }
 
-.carrinho-botao {
-  background-color: black;
-  border: none;
-  padding: 0 10px;
-  width: 60px;
-  font-size: 30px;
-  height: 50px;
-}
-
-.carrinho-botao img {
-  max-height: 100%;
-  object-fit: contain;
-}
-
 .drink__montar__botao {
   background-color: #ffcc00;
+  color: #BF281B;
+  font-size: 1.5rem;
   border: none;
   border-radius: 5px;
   width: 100%;
   max-width: 400px;
-  height: 80px;
-  font-size: 2rem;
-  color: #BF281B;
+  margin: 20px auto;
+  padding: 10px;
+  margin-left: 36%;
   cursor: pointer;
-  transition: background-color 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  margin-top: 22vh;
 }
 
+.drink__montar__botao:hover{
+  background-color: #ba9a1d;
+}
 
-
-
-/* Responsividade */
 @media (max-width: 768px) {
   .grid-container {
     grid-template-columns: repeat(2, 1fr);
@@ -204,14 +172,5 @@ body, html {
 @media (max-width: 480px) {
   .grid-container {
     grid-template-columns: 1fr;
-  }
-
-  .comprar-botao, .carrinho-botao {
-    width: 100%;
-    padding: 10px;
-  }
-
-  .carrinho-botao {
-    width: 100%;
   }
 }

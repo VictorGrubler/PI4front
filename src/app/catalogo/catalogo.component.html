@@ -1,157 +1,112 @@
-      <header class="cabecalho">
-        <img src="../../assets/logo.png" alt="Logo">
-        <div class="header-buttons">
-          <a href="/" class="header-button">Home</a>
-          <p>|</p>
-          <a href="/monte-seu-drink" class="pi pi-angle-down"class="header-button">Monte seu drink</a>
-          <p>|</p>
-          <a href="" class="header-button">Carrinho</a>
+ <!-- Cabeçalho -->
+ <header class="cabecalho">
+  <img src="assets/logo.png" alt="Logo">
+  <div class="header-buttons">
+    <a href="/" class="header-button">Home</a>
+    <p>|</p>
+    <a href="/monte-seu-drink" class="header-button">Monte seu drink</a>
+    <p>|</p>
+    <a href="/carrinho" class="header-button">Carrinho</a>
+  </div>
+</header>
+
+<!-- Catálogo de Drinks -->
+<div class="catalogo-drinks">
+  <div class="catalogo-conteudo">
+    <div class="grid-container">
+      <!-- Drink Negroni -->
+      <button class="drink-item" (click)="adicionarPedido('Negroni', 29.90)">
+        <img src="assets/Negroni.png" alt="Drink Negroni">
+        <div class="drink-info">
+          <h3 class="drink-nome">Negroni</h3>
+          <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
+          <p class="drink-preco">R$ 29,90</p>
+          <div class="drink-actions">
+            <button class="comprar-botao" (click)="adicionarPedido('Negroni', 29.90)">Comprar</button>
+            <button class="carrinho-botao">
+              <span class="pi pi-cart-plus" style="color: white;"></span>
+            </button>
+          </div>
         </div>
-      </header>
-      <div class="catalogo-conteudo">
-        <div class="grid-container">
-            <!-- Cada drink é um botão -->
-            <button class="drink-item">
-              <img src="../../assets/Negroni.png" alt="">
-                <div class="drink-info">
-                    <h3 class="drink-nome">Negroni</h3>
-                    <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
-                    <p class="drink-preco">R$ 29,90</p>
-                </div>
+      </button>
+
+      <!-- Drink Old Fashioned -->
+      <button class="drink-item">
+        <img src="../../assets/Old fashioned.png" alt="Drink Old Fashioned">
+        <div class="drink-info">
+          <h3 class="drink-nome">Old Fashioned</h3>
+          <p class="drink-descricao">Whisky, açúcar, bitter e uma pitada de água. Um clássico robusto e elegante.</p>
+          <p class="drink-preco">R$ 22,90</p>
+          <div class="drink-actions">
+            <button class="comprar-botao">Comprar</button>
+            <button class="carrinho-botao">
+              <span class="pi pi-cart-plus" style="color: white;"></span>
             </button>
-
-            <button class="drink-item">
-              <img src="../../assets/Old fashioned.png" alt="">
-                <div class="drink-info">
-                    <h3 class="drink-nome">Old Fashioned</h3>
-                    <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
-                    <p class="drink-preco">R$ 22,90</p>
-                </div>
-            </button>
-          <!-- Cada drink é um botão -->
-          <button class="drink-item">
-            <img src="../../assets/Negroni.png" alt="">
-            <div class="drink-info">
-              <h3 class="drink-nome">Negroni</h3>
-              <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
-              <p class="drink-preco">R$ 29,90</p>
-              <!-- Botões de Comprar e Adicionar ao Carrinho -->
-              <div class="drink-actions">
-                <button class="comprar-botao">Comprar</button>
-                <button class="carrinho-botao">
-                  <span class="pi pi-cart-plus" style="color: white;"></span>
-                </button>
-              </div>
-            </div>
-          </button>
-
-            <!-- Repetição dos botões -->
-            <button class="drink-item">
-              <img src="../../assets/Mojito.png" alt="">
-                <div class="drink-info">
-                    <h3 class="drink-nome">Mojito</h3>
-                    <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
-                    <p class="drink-preco">R$ 29,90</p>
-                </div>
-            </button>
-          <button class="drink-item">
-            <img src="../../assets/Old fashioned.png" alt="">
-            <div class="drink-info">
-              <h3 class="drink-nome">Old Fashioned</h3>
-              <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
-              <p class="drink-preco">R$ 22,90</p>
-              <div class="drink-actions">
-                <button class="comprar-botao">Comprar</button>
-                <button class="carrinho-botao">
-                  <span class="pi pi-cart-plus" style="color: white;"></span>
-                </button>
-              </div>
-            </div>
-          </button>
-
-            <button class="drink-item">
-              <img src="../../assets/manhattan.png" alt="">
-                <div class="drink-info">
-                    <h3 class="drink-nome">Manhattan</h3>
-                    <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
-                    <p class="drink-preco">R$ 29,90</p>
-                </div>
-            </button>
-          <!-- Repetição dos botões -->
-          <button class="drink-item">
-            <img src="../../assets/Mojito.png" alt="">
-            <div class="drink-info">
-              <h3 class="drink-nome">Mojito</h3>
-              <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
-              <p class="drink-preco">R$ 29,90</p>
-              <div class="drink-actions">
-                <button class="comprar-botao">Comprar</button>
-                <button class="carrinho-botao">
-                  <span class="pi pi-cart-plus" style="color: white;"></span>
-                </button>
-              </div>
-            </div>
-          </button>
-
-            <button class="drink-item">
-          <button class="drink-item">
-            <img src="../../assets/manhattan.png" alt="">
-            <div class="drink-info">
-              <h3 class="drink-nome">Manhattan</h3>
-              <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
-              <p class="drink-preco">R$ 29,90</p>
-              <div class="drink-actions">
-                <button class="comprar-botao">Comprar</button>
-                <button class="carrinho-botao">
-                  <span class="pi pi-cart-plus" style="color: white;"></span>
-                </button>
-              </div>
-            </div>
-          </button>
-
-                <div class="drink-info">
-                    <h3 class="drink-nome">Negroni</h3>
-                    <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
-                    <p class="drink-preco">R$ 29,90</p>
-                </div>
-            </button>
-          <button class="drink-item">
-            <img src="../../assets/manhattan.png" alt="">
-            <div class="drink-info">
-              <h3 class="drink-nome">Manhattan</h3>
-              <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
-              <p class="drink-preco">R$ 29,90</p>
-              <div class="drink-actions">
-                <button class="comprar-botao">Comprar</button>
-                <button class="carrinho-botao">
-                  <span class="pi pi-cart-plus" style="color: white;"></span>
-                </button>
-              </div>
-            </div>
-          </button>
-
-            <button class="drink-item">
-
-                <div class="drink-info">
-                    <h3 class="drink-nome">Negroni</h3>
-                    <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
-                    <p class="drink-preco">R$ 29,90</p>
-                </div>
-            </button>
-          <button class="drink-item">
-            <img src="../../assets/manhattan.png" alt="">
-            <div class="drink-info">
-              <h3 class="drink-nome">Manhattan</h3>
-              <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
-              <p class="drink-preco">R$ 29,90</p>
-              <div class="drink-actions">
-                <button class="comprar-botao">Comprar</button>
-                <button class="carrinho-botao">
-                  <span class="pi pi-cart-plus" style="color: white;"></span>
-                </button>
-              </div>
-            </div>
-          </button>
+          </div>
         </div>
+      </button>
+
+      <!-- Drink Mojito -->
+      <button class="drink-item">
+        <img src="assets/Mojito.png" alt="Drink Mojito">
+        <div class="drink-info">
+          <h3 class="drink-nome">Mojito</h3>
+          <p class="drink-descricao">Refrescante combinação de rum, hortelã, limão, açúcar e água com gás.</p>
+          <p class="drink-preco">R$ 29,90</p>
+          <div class="drink-actions">
+            <button class="comprar-botao">Comprar</button>
+            <button class="carrinho-botao">
+              <span class="pi pi-cart-plus" style="color: white;"></span>
+            </button>
+          </div>
+        </div>
+      </button>
+
+      <!-- Drink Manhattan -->
+      <button class="drink-item">
+        <img src="../../assets/manhattan.png" alt="Drink Manhattan">
+        <div class="drink-info">
+          <h3 class="drink-nome">Manhattan</h3>
+          <p class="drink-descricao">Whisky e vermute doce com um toque de Angostura. Elegância em cada gole.</p>
+          <p class="drink-preco">R$ 29,90</p>
+          <div class="drink-actions">
+            <button class="comprar-botao">Comprar</button>
+            <button class="carrinho-botao">
+              <span class="pi pi-cart-plus" style="color: white;"></span>
+            </button>
+          </div>
+        </div>
+      </button>
+
+      <button class="drink-item">
+        <img src="../../assets/manhattan.png" alt="Drink Manhattan">
+        <div class="drink-info">
+          <h3 class="drink-nome">Manhattan</h3>
+          <p class="drink-descricao">Whisky e vermute doce com um toque de Angostura. Elegância em cada gole.</p>
+          <p class="drink-preco">R$ 29,90</p>
+          <div class="drink-actions">
+            <button class="comprar-botao">Comprar</button>
+            <button class="carrinho-botao">
+              <span class="pi pi-cart-plus" style="color: white;"></span>
+            </button>
+          </div>
+        </div>
+      </button>
+
+      <button class="drink-item">
+        <img src="../../assets/manhattan.png" alt="Drink Manhattan">
+        <div class="drink-info">
+          <h3 class="drink-nome">Manhattan</h3>
+          <p class="drink-descricao">Whisky e vermute doce com um toque de Angostura. Elegância em cada gole.</p>
+          <p class="drink-preco">R$ 29,90</p>
+          <div class="drink-actions">
+            <button class="comprar-botao">Comprar</button>
+            <button class="carrinho-botao">
+              <span class="pi pi-cart-plus" style="color: white;"></span>
+            </button>
+          </div>
+        </div>
+      </button>
     </div>
-    <button class="drink__montar__botao">Monte seu drink</button>
+  </div>
+</div>

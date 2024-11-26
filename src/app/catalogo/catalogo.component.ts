@@ -9,4 +9,11 @@ import { Component } from '@angular/core';
 })
 export class CatalogoComponent {
 
+  adicionarPedido(nome: string, preco: number): void {
+    const pedidos = JSON.parse(localStorage.getItem('pedidos') || '[]');
+    const novoPedido = { nome, preco, status: 'Pendente' };
+    pedidos.push(novoPedido);
+    localStorage.setItem('pedidos', JSON.stringify(pedidos));
+    alert(`Pedido adicionado: ${nome}`);
+  }
 }

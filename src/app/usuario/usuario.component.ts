@@ -15,4 +15,8 @@ export class UsuarioComponent {
   logar() {
     this.router.navigate(['/catalogo'])
   }
+
+  pedidos() {
+    this.router.navigate(['/pedidos'])
+  }
 }
