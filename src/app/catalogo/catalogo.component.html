@@ -6,7 +6,7 @@
     <p>|</p>
     <a href="/monte-seu-drink" class="header-button">Monte seu drink</a>
     <p>|</p>
-    <a href="/carrinho" class="header-button">Carrinho</a>
+    <a (click)="Carrinho()" class="header-button">Carrinho</a>
   </div>
 </header>
 
@@ -22,23 +22,23 @@
           <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
           <p class="drink-preco">R$ 29,90</p>
           <div class="drink-actions">
-            <button class="comprar-botao" (click)="adicionarPedido('Negroni', 29)">Comprar</button>
+            <button class="comprar-botao" (click)="adicionarPedido('Negroni', 29.90)">Comprar</button>
             <button class="carrinho-botao">
-              <span class="pi pi-cart-plus" style="color: white;"></span>
+              <span class="pi pi-cart-plus" style="color: white;" ></span>
             </button>
           </div>
         </div>
       </button>
 
       <!-- Drink Old Fashioned -->
-      <button class="drink-item">
+      <button class="drink-item" (click)="adicionarPedido('Negroni', 29.90)">
         <img src="../../assets/Old fashioned.png" alt="Drink Old Fashioned">
         <div class="drink-info">
           <h3 class="drink-nome">Old Fashioned</h3>
           <p class="drink-descricao">Whisky, açúcar, bitter e uma pitada de água. Um clássico robusto e elegante.</p>
           <p class="drink-preco">R$ 22,90</p>
           <div class="drink-actions">
-            <button class="comprar-botao">Comprar</button>
+            <button class="comprar-botao" (click)="adicionarPedido('Negroni', 29.90)">Comprar</button>
             <button class="carrinho-botao">
               <span class="pi pi-cart-plus" style="color: white;"></span>
             </button>
@@ -47,14 +47,14 @@
       </button>
 
       <!-- Drink Mojito -->
-      <button class="drink-item">
+      <button class="drink-item" (click)="adicionarPedido('Negroni', 29.90)">
         <img src="assets/Mojito.png" alt="Drink Mojito">
         <div class="drink-info">
           <h3 class="drink-nome">Mojito</h3>
           <p class="drink-descricao">Refrescante combinação de rum, hortelã, limão, açúcar e água com gás.</p>
           <p class="drink-preco">R$ 29,90</p>
           <div class="drink-actions">
-            <button class="comprar-botao">Comprar</button>
+            <button class="comprar-botao" (click)="adicionarPedido('Negroni', 29.90)">Comprar</button>
             <button class="carrinho-botao">
               <span class="pi pi-cart-plus" style="color: white;"></span>
             </button>
@@ -63,7 +63,7 @@
       </button>
 
       <!-- Drink Manhattan -->
-      <button class="drink-item">
+      <button class="drink-item" (click)="adicionarPedido('Negroni', 29.90)">
         <img src="../../assets/manhattan.png" alt="Drink Manhattan">
         <div class="drink-info">
           <h3 class="drink-nome">Manhattan</h3>
@@ -78,7 +78,7 @@
         </div>
       </button>
 
-      <button class="drink-item">
+      <button class="drink-item" (click)="adicionarPedido('Negroni', 29.90)">
         <img src="../../assets/manhattan.png" alt="Drink Manhattan">
         <div class="drink-info">
           <h3 class="drink-nome">Manhattan</h3>
@@ -93,7 +93,7 @@
         </div>
       </button>
 
-      <button class="drink-item">
+      <button class="drink-item" (click)="adicionarPedido('Negroni', 29.90)">
         <img src="../../assets/manhattan.png" alt="Drink Manhattan">
         <div class="drink-info">
           <h3 class="drink-nome">Manhattan</h3>

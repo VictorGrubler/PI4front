@@ -5,7 +5,7 @@ import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './pedidos.component.html',
-  styleUrl: './pedidos.component.css',
+  styleUrls: ['./pedidos.component.css'],
 })
 export class PedidosComponent implements OnInit {
   constructor(private el: ElementRef, private renderer: Renderer2) {}
@@ -21,10 +21,10 @@ export class PedidosComponent implements OnInit {
     const pedidosContainer = this.el.nativeElement.querySelector('#pedidos-container');
     pedidosContainer.innerHTML = ''; // Garante que o contêiner esteja limpo antes de carregar os pedidos
 
-    pedidos.forEach((pedido: { nome: string; preco: number; status: string; dataHora: string }) => {
+    pedidos.forEach((pedido: { nome: string; preco: number; status: string; dataHora: string; numeroMesa: number }) => {
       const pedidoElement = this.renderer.createElement('div');
       const pedidoText = this.renderer.createText(
-        `${pedido.nome} - R$ ${pedido.preco.toFixed(2)} - Status: ${pedido.status} - Data/Hora: ${pedido.dataHora}`
+        `${pedido.nome} - R$ ${pedido.preco.toFixed(2)} - Status: ${pedido.status} - Data/Hora: ${pedido.dataHora} - Mesa: ${pedido.numeroMesa}`
       );
 
       this.renderer.appendChild(pedidoElement, pedidoText);
@@ -66,10 +66,10 @@ export class PedidosComponent implements OnInit {
       return;
     }
 
-    pedidosRemovidos.forEach((pedido: { nome: string; preco: number; status: string; dataHora: string }) => {
+    pedidosRemovidos.forEach((pedido: { nome: string; preco: number; status: string; dataHora: string; numeroMesa: number }) => {
       const pedidoElement = this.renderer.createElement('div');
       const pedidoText = this.renderer.createText(
-        `${pedido.nome} - R$ ${pedido.preco.toFixed(2)} - Status: ${pedido.status} - Data/Hora: ${pedido.dataHora}`
+        `${pedido.nome} - R$ ${pedido.preco.toFixed(2)} - Status: ${pedido.status} - Data/Hora: ${pedido.dataHora} - Mesa: ${pedido.numeroMesa}`
       );
 
       this.renderer.appendChild(pedidoElement, pedidoText);

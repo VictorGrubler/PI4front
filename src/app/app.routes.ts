@@ -6,11 +6,12 @@ import { PedidosComponent } from './pedidos/pedidos.component';
 import { CarrinhoComponent } from './carrinho/carrinho.component';
 
 export const routes: Routes = [
-  {path: '', component: UsuarioComponent},
-  {path: 'catalogo', component: CatalogoComponent},
-  {path: 'usuario', component: UsuarioComponent},
-  {path: 'pedidos', component: PedidosComponent},
-  {path: 'carrinho', component: CarrinhoComponent}
+  { path: '', component: UsuarioComponent },            // Página inicial (usuário)
+  { path: 'catalogo', component: CatalogoComponent },    // Página de catálogo
+  { path: 'usuario', component: UsuarioComponent },      // Página de usuário
+  { path: 'pedidos', component: PedidosComponent },      // Página de pedidos
+  { path: 'carrinho', component: CarrinhoComponent },    // Página de carrinho
+  { path: '**', redirectTo: '', pathMatch: 'full' }      // Redireciona para a página inicial em caso de rota desconhecida
 ];
 
 @NgModule({
