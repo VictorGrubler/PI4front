@@ -15,30 +15,27 @@
   <div class="catalogo-conteudo">
     <div class="grid-container">
       <!-- Drink Negroni -->
-      <button class="drink-item" (click)="adicionarPedido('Negroni', 29.90)">
-        <img src="assets/Negroni.png" alt="Drink Negroni">
+      <div *ngFor="let drink of drinks" class="drink-item">
+        <img [src]="drink.imagem" [alt]="drink.nome">
         <div class="drink-info">
-          <h3 class="drink-nome">Negroni</h3>
-          <p class="drink-descricao">Um clássico coquetel italiano, feito com gin, vermute rosso e Campari, decorado com laranja.</p>
-          <p class="drink-preco">R$ 29,90</p>
+          <h3 class="drink-nome">{{ drink.nome }}</h3>
+          <p class="drink-descricao">{{ drink.descricao }}</p>
+          <p class="drink-preco">{{ drink.preco }}</p>
           <div class="drink-actions">
-            <button class="comprar-botao" (click)="adicionarPedido('Negroni', 29.90)">Comprar</button>
-            <button class="carrinho-botao">
-              <span class="pi pi-cart-plus" style="color: white;" ></span>
-            </button>
+            <button class="comprar-botao" (click)="adicionarAoCarrinho(drink)">Comprar</button>
           </div>
         </div>
-      </button>
+      </div>
 
       <!-- Drink Old Fashioned -->
-      <button class="drink-item" (click)="adicionarPedido('Negroni', 29.90)">
+      <button class="drink-item" >
         <img src="../../assets/Old fashioned.png" alt="Drink Old Fashioned">
         <div class="drink-info">
           <h3 class="drink-nome">Old Fashioned</h3>
           <p class="drink-descricao">Whisky, açúcar, bitter e uma pitada de água. Um clássico robusto e elegante.</p>
           <p class="drink-preco">R$ 22,90</p>
           <div class="drink-actions">
-            <button class="comprar-botao" (click)="adicionarPedido('Negroni', 29.90)">Comprar</button>
+            <button class="comprar-botao" >Comprar</button>
             <button class="carrinho-botao">
               <span class="pi pi-cart-plus" style="color: white;"></span>
             </button>
@@ -47,14 +44,14 @@
       </button>
 
       <!-- Drink Mojito -->
-      <button class="drink-item" (click)="adicionarPedido('Negroni', 29.90)">
+      <button class="drink-item" >
         <img src="assets/Mojito.png" alt="Drink Mojito">
         <div class="drink-info">
           <h3 class="drink-nome">Mojito</h3>
           <p class="drink-descricao">Refrescante combinação de rum, hortelã, limão, açúcar e água com gás.</p>
           <p class="drink-preco">R$ 29,90</p>
           <div class="drink-actions">
-            <button class="comprar-botao" (click)="adicionarPedido('Negroni', 29.90)">Comprar</button>
+            <button class="comprar-botao" >Comprar</button>
             <button class="carrinho-botao">
               <span class="pi pi-cart-plus" style="color: white;"></span>
             </button>
@@ -63,7 +60,7 @@
       </button>
 
       <!-- Drink Manhattan -->
-      <button class="drink-item" (click)="adicionarPedido('Negroni', 29.90)">
+      <button class="drink-item" >
         <img src="../../assets/manhattan.png" alt="Drink Manhattan">
         <div class="drink-info">
           <h3 class="drink-nome">Manhattan</h3>
@@ -78,7 +75,7 @@
         </div>
       </button>
 
-      <button class="drink-item" (click)="adicionarPedido('Negroni', 29.90)">
+      <button class="drink-item" >
         <img src="../../assets/manhattan.png" alt="Drink Manhattan">
         <div class="drink-info">
           <h3 class="drink-nome">Manhattan</h3>
@@ -93,7 +90,7 @@
         </div>
       </button>
 
-      <button class="drink-item" (click)="adicionarPedido('Negroni', 29.90)">
+      <button class="drink-item" >
         <img src="../../assets/manhattan.png" alt="Drink Manhattan">
         <div class="drink-info">
           <h3 class="drink-nome">Manhattan</h3>

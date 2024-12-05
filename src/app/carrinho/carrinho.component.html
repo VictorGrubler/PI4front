@@ -1,0 +1,23 @@
+<!-- Carrinho de Compras -->
+<h2>Carrinho de Compras</h2>
+<div *ngIf="itens.length === 0">O carrinho está vazio.</div>
+
+<!-- Lista de itens do carrinho -->
+<div *ngFor="let item of itens">
+  <p>{{ item.nome }} - {{ item.preco }}</p>
+</div>
+
+<!-- Exibe o total -->
+<div *ngIf="itens.length > 0">
+  <p><strong>Total: R$ {{ total.toFixed(2).replace('.', ',') }}</strong></p>
+</div>
+
+<!-- Número da mesa -->
+<div>
+  <label for="mesa">Número da Mesa:</label>
+  <input type="text" id="mesa" [(ngModel)]="numeroMesa" placeholder="Informe o número da mesa" />
+</div>
+
+<!-- Botões -->
+<button (click)="limparCarrinho()">Limpar Carrinho</button>
+<button (click)="finalizarPedido()">Finalizar Pedido</button>

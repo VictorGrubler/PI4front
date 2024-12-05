@@ -1,79 +1,43 @@
-import { Component, OnInit, ElementRef, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { PedidoService } from '../pedido.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @Component({
-  selector: 'app-pedidos',
   standalone: true,
-  imports: [],
+  imports: [FormsModule, CommonModule],
+  selector: 'app-pedidos',
   templateUrl: './pedidos.component.html',
   styleUrls: ['./pedidos.component.css'],
 })
 export class PedidosComponent implements OnInit {
-  constructor(private el: ElementRef, private renderer: Renderer2) {}
+  pedidosAtuais: any[] = [];
+  pedidosHistorico: any[] = [];
+  exibirHistorico: boolean = false;
 
-  ngOnInit(): void {
-    this.carregarPedidos();
+  constructor(private pedidoService: PedidoService) {}
+
+  ngOnInit() {
+    this.carregarPedidosAtuais();
   }
 
-  carregarPedidos(): void {
-    const storedPedidos = localStorage.getItem('pedidos');
-    const pedidos = storedPedidos ? JSON.parse(storedPedidos) : [];
-
-    const pedidosContainer = this.el.nativeElement.querySelector('#pedidos-container');
-    pedidosContainer.innerHTML = ''; // Garante que o contêiner esteja limpo antes de carregar os pedidos
-
-    pedidos.forEach((pedido: { nome: string; preco: number; status: string; dataHora: string; numeroMesa: number }) => {
-      const pedidoElement = this.renderer.createElement('div');
-      const pedidoText = this.renderer.createText(
-        `${pedido.nome} - R$ ${pedido.preco.toFixed(2)} - Status: ${pedido.status} - Data/Hora: ${pedido.dataHora} - Mesa: ${pedido.numeroMesa}`
-      );
-
-      this.renderer.appendChild(pedidoElement, pedidoText);
-      this.renderer.appendChild(pedidosContainer, pedidoElement);
-    });
+  carregarPedidosAtuais() {
+    this.pedidosAtuais = this.pedidoService.obterPedidosAtuais();
   }
 
-  limparPedidos(): void {
-    const storedPedidos = localStorage.getItem('pedidos');
-    const pedidos = storedPedidos ? JSON.parse(storedPedidos) : [];
+  carregarPedidosHistorico() {
+    this.pedidosHistorico = this.pedidoService.obterPedidosHistorico();
+  }
 
-    if (pedidos.length > 0) {
-      // Armazena os pedidos removidos no localStorage em "pedidosRemovidos"
-      const storedRemovidos = localStorage.getItem('pedidosRemovidos');
-      const pedidosRemovidos = storedRemovidos ? JSON.parse(storedRemovidos) : [];
-      pedidosRemovidos.push(...pedidos); // Adiciona os pedidos removidos à lista existente
-      localStorage.setItem('pedidosRemovidos', JSON.stringify(pedidosRemovidos));
+  limparPedidosAtuais() {
+    this.pedidoService.limparPedidos(); // Move pedidos atuais para o histórico
+    this.carregarPedidosAtuais(); // Atualiza a lista de pedidos atuais
+  }
+
+  toggleHistorico() {
+    this.exibirHistorico = !this.exibirHistorico;
+    if (this.exibirHistorico) {
+      this.carregarPedidosHistorico(); // Carrega histórico somente quando necessário
     }
-
-    // Remove os pedidos atuais
-    localStorage.removeItem('pedidos');
-
-    // Limpa a interface
-    const pedidosContainer = this.el.nativeElement.querySelector('#pedidos-container');
-    pedidosContainer.innerHTML = '';
-
-    alert('Lista de pedidos limpa com sucesso! Os pedidos foram armazenados como removidos.');
-  }
-
-  carregarPedidosRemovidos(): void {
-    const storedRemovidos = localStorage.getItem('pedidosRemovidos');
-    const pedidosRemovidos = storedRemovidos ? JSON.parse(storedRemovidos) : [];
-
-    const removidosContainer = this.el.nativeElement.querySelector('#removidos-container');
-    removidosContainer.innerHTML = ''; // Garante que o contêiner esteja limpo antes de carregar os pedidos removidos
-
-    if (pedidosRemovidos.length === 0) {
-      removidosContainer.innerHTML = '<p>Não há pedidos removidos.</p>';
-      return;
-    }
-
-    pedidosRemovidos.forEach((pedido: { nome: string; preco: number; status: string; dataHora: string; numeroMesa: number }) => {
-      const pedidoElement = this.renderer.createElement('div');
-      const pedidoText = this.renderer.createText(
-        `${pedido.nome} - R$ ${pedido.preco.toFixed(2)} - Status: ${pedido.status} - Data/Hora: ${pedido.dataHora} - Mesa: ${pedido.numeroMesa}`
-      );
-
-      this.renderer.appendChild(pedidoElement, pedidoText);
-      this.renderer.appendChild(removidosContainer, pedidoElement);
-    });
   }
 }

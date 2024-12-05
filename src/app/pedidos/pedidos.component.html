@@ -1,8 +1,43 @@
-<h2>Lista de Pedidos</h2>
-<div id="pedidos-container"></div>
+<h2>Pedidos</h2>
 
-<button (click)="limparPedidos()" class="limpar-botao">Limpar Pedidos</button>
+<!-- Botões -->
+<div>
+  <button *ngIf="!exibirHistorico" (click)="limparPedidosAtuais()">Limpar Pedidos</button>
+  <button (click)="toggleHistorico()">
+    {{ exibirHistorico ? 'Voltar aos Pedidos Atuais' : 'Histórico de Pedidos' }}
+  </button>
+</div>
 
-<h2>Histórico de Pedidos Removidos</h2>
-<div id="removidos-container"></div>
-<button (click)="carregarPedidosRemovidos()" class="historico-botao">Exibir Histórico</button>
+<!-- Pedidos Atuais -->
+<div *ngIf="!exibirHistorico">
+  <h3>Pedidos Atuais</h3>
+  <div *ngIf="pedidosAtuais.length > 0">
+    <div *ngFor="let pedido of pedidosAtuais">
+      <h4>Mesa: {{ pedido.mesa }}</h4>
+      <p><strong>Data e Hora:</strong> {{ pedido.dataHora | date: 'dd/MM/yyyy HH:mm' }}</p>
+      <div *ngFor="let item of pedido.itens">
+        <p>{{ item.nome }} - {{ item.preco }}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="pedidosAtuais.length === 0">
+    <p>Não há pedidos atuais.</p>
+  </div>
+</div>
+
+<!-- Histórico de Pedidos -->
+<div *ngIf="exibirHistorico">
+  <h3>Histórico de Pedidos</h3>
+  <div *ngIf="pedidosHistorico.length > 0">
+    <div *ngFor="let pedido of pedidosHistorico">
+      <h4>Mesa: {{ pedido.mesa }}</h4>
+      <p><strong>Data e Hora:</strong> {{ pedido.dataHora | date: 'dd/MM/yyyy HH:mm' }}</p>
+      <div *ngFor="let item of pedido.itens">
+        <p>{{ item.nome }} - {{ item.preco }}</p>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="pedidosHistorico.length === 0">
+    <p>Não há pedidos no histórico.</p>
+  </div>
+</div>
